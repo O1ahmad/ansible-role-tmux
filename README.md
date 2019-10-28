@@ -1,4 +1,4 @@
-Ansible Role :eyeglasses: Tmux
+Ansible Role :eyeglasses: tmux
 =========
 [![Galaxy Role](*role-shield-link*)](--role-link--)
 [![Downloads](*downloads-shield-link*)](--role-link--)
