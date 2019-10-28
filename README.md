@@ -1,4 +1,4 @@
-Ansible Role Tmux
+Ansible Role :eyeglasses: Tmux
 =========
 [![Galaxy Role](*role-shield-link*)](--role-link--)
 [![Downloads](*downloads-shield-link*)](--role-link--)
@@ -11,7 +11,6 @@ Ansible Role Tmux
       - [Install](#install)
       - [Config](#config)
       - [Launch](#launch)
-      - [Uninstall](#uninstall)
   - [Dependencies](#dependencies)
   - [Example Playbook](#example-playbook)
   - [License](#license)
@@ -37,7 +36,6 @@ Variables are available and organized according to the following software & mach
 * _install_
 * _config_
 * _launch_
-* _uninstall_
 
 #### Install
 
@@ -50,10 +48,6 @@ Variables are available and organized according to the following software & mach
 #### Launch
 
 ...*description of service launch related vars*...
-
-#### Uninstall
-
-...*description of uninstallation related vars*...
 
 Dependencies
 ------------
