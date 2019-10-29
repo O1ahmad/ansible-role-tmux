@@ -13,7 +13,8 @@
     create_home: false
   become: true
 
-- name: Install tmux package software
+- name: Install tmux software package
   package:
     name: "{{ service_package }}"
     state: present
+  become: true

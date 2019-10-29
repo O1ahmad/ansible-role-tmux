@@ -1,10 +1,4 @@
 ---
-- name: debug tmux configuration
-  debug:
-    var: tmux_config[item][0].commands[0]
-    verbosity: 3
-  with_items: "{{ tmux_config.keys() }}"
-
 - name: Copy custom systemd-wide configuration in place
   template:
     src: "{{ tmux_config_file }}.j2"
@@ -30,4 +24,4 @@
     account: "{{ item }}"
   with_items: "{{ tmux_config.keys() | difference(['global']) }}"
   become: true
-  when: tmux_config is not none
+  when: tmux_config is not none and (tmux_config.keys() | difference(['global'])) is not none
