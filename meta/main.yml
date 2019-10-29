@@ -3,7 +3,8 @@
 galaxy_info:
   author: Ahmad Wilson
   role_name: ansible-role-tmux
-  description: tmux, a terminal multiplexer enabling multiple terminals to be created, accessed, and controlled from a single screen.
+  description: tmux, a terminal multiplexer enabling multiple terminals to be \
+               created, accessed, and controlled from a single screen.
   company: "O1 Labs"
   license: license (Apache, BSD, MIT)
   min_ansible_version: 2.6
@@ -30,5 +31,6 @@ galaxy_info:
     - tmux
     - terminal
     - multiplexer
-    - window system
-    - session management
+    - window
+    - session
+    - management

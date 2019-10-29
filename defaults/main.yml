@@ -1,2 +1,9 @@
 ---
-# defaults variable file
+# defaults variable for tmux
+tmux_user: tmux
+
+global_config_dir: "/etc"
+service_package: tmux
+
+tmux_config_file: tmux.conf
+tmux_config: {}
