@@ -1,0 +1,33 @@
+---
+- name: debug tmux configuration
+  debug:
+    var: tmux_config[item][0].commands[0]
+    verbosity: 3
+  with_items: "{{ tmux_config.keys() }}"
+
+- name: Copy custom systemd-wide configuration in place
+  template:
+    src: "{{ tmux_config_file }}.j2"
+    dest: "{{ global_config_dir }}/{{ tmux_config_file }}"
+    owner: root
+    group: root
+    mode: 0644
+    backup: true
+  vars:
+    account: global
+  become: true
+  when: tmux_config is not none and "global" in tmux_config
+
+- name: Copy user configuration in place
+  template:
+    src: "{{ tmux_config_file }}.j2"
+    dest: "/home/{{ item }}/.{{ tmux_config_file }}"
+    owner: "{{ item }}"
+    group: "{{ item }}"
+    mode: 0644
+    backup: true
+  vars:
+    account: "{{ item }}"
+  with_items: "{{ tmux_config.keys() | difference(['global']) }}"
+  become: true
+  when: tmux_config is not none

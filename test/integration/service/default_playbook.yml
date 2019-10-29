@@ -1,0 +1,5 @@
+---
+- name: Playbook for service/package installation testing
+  hosts: test-kitchen
+  roles:
+    - ansible-role-tmux

@@ -26,7 +26,7 @@ provisioner:
   name: ansible_playbook
   require_chef_for_busser: false
   require_ruby_for_busser: false
-  ansible_verbosity: 2
+  ansible_verbosity: 3
   ansible_verbose: true
 
 verifier:
@@ -70,9 +70,15 @@ platforms:
         - systemctl enable ssh.service
 
 suites:
-  - name: default
+  - name: config
     provisioner:
-      playbook: test/integration/default/default_playbook.yml
+      playbook: test/integration/config/default_playbook.yml
     verifier:
       inspec_tests:
-        - path: test/integration/default
+        - path: test/integration/config
+  - name: service
+    provisioner:
+      playbook: test/integration/service/default_playbook.yml
+    verifier:
+      inspec_tests:
+        - path: test/integration/service
