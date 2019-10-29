@@ -18,8 +18,8 @@
             - "set": "-s escape-time 10"
         - comment: "Bind current vertical/horizontal split-window keys to values not requiring ^(shift)"
           commands:
-            - "bind": "- split-window -h"
-            - "bind": "/ split-window -v"
+            - "bind": "- split-window -v"
+            - "bind": "/ split-window -h"
         - commands:
             - "bind": "C-c new-session"
               "set": "-g status-interval 10"
