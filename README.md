@@ -68,9 +68,7 @@ The following provides an overview and example configurations for reference:
 `[tmux_config:  {global | user-account} : {entry} :] commands: <key: value,...>` (**default**: see `defaults/main.yml`)
 - a collection of configuration commands to render within *user-account's* tmux.conf. A list of available command-line options can be found [here](http://man7.org/linux/man-pages/man1/tmux.1.html)
 
-_**Typically each key:value pair represents the {command} : {flags} components of a tmux command respectively.**_
-
-##### Example
+**Typically each key:value pair represents the `{command}: {flags}` components of a tmux command respectively:**
 
  ```yaml
   tmux_config:
