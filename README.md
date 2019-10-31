@@ -49,7 +49,7 @@ _The following variables can be customized to control various aspects of this in
 
 #### Config
 
-Using this role, configuration of an instance of `tmux` is managed with the `tmux_config` user variable and can be expressed within a hash, keyed by user account where appropriate. The value of these user account keys are either dicts, list of dicts or a combination thereof (set according to operator yaml syntax and customization preferences) representing associated startup/configuration commands and an `optional` command-sequence comment.
+Using this role, configuration of an instance of `tmux` is managed with the `tmux_config` user variable and can be expressed within a hash, keyed by user account where appropriate. The value of these user account keys are either dicts, list of dicts or a combination thereof (set according to operator yaml syntax and customization preferences) representing associated startup/configuration commands/command-sequences (combinations of commands linked by execution) and an `optional` command-sequence comment.
 
 The following provides an overview and example configurations for reference:
 
@@ -79,10 +79,10 @@ _**Typically each key:value pair represents the {command} : {flags} components o
         commands:
           # {command}: {flags} format
           - "set-option": "-g prefix2 C-a"
-            "bind-key": "C-a send-prefix -2"
+          - "bind-key": "C-a send-prefix -2"
   ```
   
-  _**However, technically any splitting of the tmux command syntax is allowed and should result in the correct rendering of the desired configuration:**_
+However, technically any splitting of the tmux command syntax is allowed and should result in the correct rendering of the desired configuration:
 
  ```yaml
   tmux_config:
