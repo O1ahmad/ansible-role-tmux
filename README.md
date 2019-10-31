@@ -166,7 +166,7 @@ Apply Tmux "sensible (configurations)" plugin settings manually:
       tmux_config:
         - comment: "Add sensible to list of TPM plugins"
           commands:
-            - "set-opton": "-g @plugin 'tmux-plugins/tmux-sensible'"
+            - "set-option": "-g @plugin 'tmux-plugins/tmux-sensible'"
 ```
 
 License
