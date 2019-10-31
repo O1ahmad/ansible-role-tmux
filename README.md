@@ -49,12 +49,58 @@ _The following variables can be customized to control various aspects of this in
 
 #### Config
 
-...*description of configuration related vars*...
+Using this role, configuration of an instance of `tmux` is managed with the `tmux_config` user variable and can be expressed within a hash, keyed by user account where appropriate. The value of these user account keys are either dicts, list of dicts or a combination thereof (set according to operator yaml syntax and customization preferences) representing associated startup/ configuration commands and an `optional` command-sequence comment.
 
+The following provides an overview and example configurations for reference:
+
+`tmux_config:  {global | user-account}: {entry} : comment` (**default**: see *none*)
+- [optional] comment associated with configuration command or command-sequence
+
+##### Example
+
+ ```yaml
+  tmux_config:
+    global:
+      - comment: "This comment provides context around the commands below (if they were any)"
+        commands: []
+  ```
+
+`tmux_config:  {global | user-account}: {entry} : commands: <key: value,...>` (**default**: see `defaults/main.yml`)
+- a collection of configuration commands to render within *user-account's* tmux.conf. A list of available command-line options can be found [here](http://man7.org/linux/man-pages/man1/tmux.1.html)
+
+_**Typically each key:value pair represents the {command} : {flags} components of a tmux command respectively.**_
+
+##### Example
+
+ ```yaml
+  tmux_config:
+    global:
+      - comment: "Add ctrl-A as secondary prefix key"
+        commands:
+          # {command}: {flags} format
+          - "set-option": "-g prefix2 C-a"
+            "bind-key": "C-a send-prefix -2"
+  ```
+  
+  _**However, technically any splitting of the tmux command syntax is allowed and should result in the correct rendering of the desired configuration:**_
+
+ ```yaml
+  tmux_config:
+    user-account-1:
+      - commands:
+          - "bind-key C-c": "new-session"
+          - "if-shell true": "{ display -p 'bar-dollar-foo: $foo' }"
+          - "set-hook -g pane-mode-changed[42] 'set -g status-left-style bg=red'": ""
+      - commands:
+          - "set": "-g @plugin 'tmux-plugins/tpm'"
+            "set -g": "@plugin 'tmux-plugins/tmux-sensible'"
+        comment: "Install tmux TPM & 'tmux-sensible' (sensible configurations) plugins"
+  ```
+  
 Dependencies
 ------------
 
-...*list dependencies*...
+None
 
 Example Playbook
 ----------------
@@ -63,6 +109,32 @@ default example:
 - hosts: all
   roles:
   - role: 0xOI.tmux
+```
+
+Popular online tmux profile #1:
+```
+- hosts: prod
+  roles:
+  - role: 0xOI.tmux
+    vars:
+      tmux_config:
+        service:
+          # user authentication
+          AllowGroups: "devops security"
+          AuthenticationMethods: "publickey"
+```
+              
+Popular online tmux profile #2:
+```
+- hosts: dev
+  roles:
+  - role: 0xOI.tmux
+    vars:
+      tmux_config:
+        global:
+          AllowGroups: "ssh-user"
+          AllowAgentForwarding: "yes"
+          AddKeysToAgent: "yes"
 ```
 
 License
