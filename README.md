@@ -1,8 +1,8 @@
 Ansible Role :eyeglasses: tmux
 =========
-[![Galaxy Role](*role-shield-link*)](--role-link--)
-[![Downloads](*downloads-shield-link*)](--role-link--)
-[![Build Status](*build-shield-link*)](--role-link--)
+[![Galaxy Role](https://img.shields.io/ansible/role/44305.svg)](https://galaxy.ansible.com/0x0I/tmux)
+[![Downloads](https://img.shields.io/ansible/role/d/44305.svg)](https://galaxy.ansible.com/0x0I/tmux)
+[![Build Status](https://travis-ci.org/0x0I/ansible-role-tmux.svg?branch=master)](https://travis-ci.org/0x0I/ansible-role-tmux)
 
 **Table of Contents**
   - [Supported Platforms](#supported-platforms)
