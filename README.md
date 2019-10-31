@@ -10,7 +10,6 @@ Ansible Role :eyeglasses: tmux
   - [Role Variables](#role-variables)
       - [Install](#install)
       - [Config](#config)
-      - [Launch](#launch)
   - [Dependencies](#dependencies)
   - [Example Playbook](#example-playbook)
   - [License](#license)
@@ -28,26 +27,29 @@ Ansible role that installs, configures and runs tmux: a terminal multiplexer ena
 Requirements
 ------------
 
-...*description of provisioning requirements*...
+Requires pre-installation of the [libevent 2.x](http://fr2.rpmfind.net/linux/rpm2html/search.php?query=libevent&submit=Search+...&system=&arch=) and [ncurses](http://fr2.rpmfind.net/linux/rpm2html/search.php?query=ncurses&submit=Search+...&system=&arch=) software packages.
 
 Role Variables
 --------------
 Variables are available and organized according to the following software & machine provisioning stages:
 * _install_
 * _config_
-* _launch_
 
 #### Install
 
-...*description of installation related vars*...
+`tmux`can be installed using OS package management systems provided by the supported platforms (e.g `apt`, `yum/dnf`).
+
+_The following variables can be customized to control various aspects of this installation processr:_
+
+`service_package: <package-name-and-version>` (**default**: *tmux*[-latest])
+- name and version of the tmux package to download and install. [Reference](http://fr2.rpmfind.net/linux/rpm2html/search.php?query=tmux&submit=Search+...&system=&arch=) or run something like `dnf --showduplicates list tmux` in a terminal to display a list of available packages for your platform
+
+`tmux_user: <service-user-name>` (**default**: *tmux*)
+- dedicated service user, group and directory used by `tmux` for privilege separation
 
 #### Config
 
 ...*description of configuration related vars*...
-
-#### Launch
-
-...*description of service launch related vars*...
 
 Dependencies
 ------------
