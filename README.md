@@ -116,45 +116,46 @@ Apply Tmux "sensible (configurations)" plugin settings manually:
   - role: 0xOI.tmux
     vars:
       tmux_config:
-        - comment: "utf8 is on"
-          commands:
-            - "set-option": "-g utf8 on"
-            - "set-option": "-g status-utf8 on"
-        - comment: "address vim mode switching delay (http://superuser.com/a/252717/65504)"
-          commands:
-            - "set-option": "-s escape-time 0"
-        - comment: "increase scrollback buffer size"
-          commands:
-            - "set-option": "-g history-limit 50000"
-        - comment: "tmux messages are displayed for 4 seconds"
-          commands:
-            - "set-option": "-g display-time 4000
-        - comment: "refresh 'status-left' and 'status-right' more often"
-          commands:
-            - "set-option": "-g status-interval 5"
-        - comment: "upgrade $TERM"
-          commands:
-            - "set-option": "-g default-terminal "screen-256color"
-        - comment: "emacs key bindings in tmux command prompt (prefix + :) are bettter than vi keys, even for vim users"
-          commands:
-            - "set-option": "status-keys emacs"
-        - comment: "focus events enabled for terminals that support them"
-          commands:
-            - "set-option": "-g focus-events on"
-        - comment: "super useful when using "grouped sessions" and multi-monitor setup"
-          commands:
-            - "set-window-option": "-g aggressive-resize on"
-        - comment: "easier and faster switching between next/prev window"
-          commands:
-            - "bind-key": "C-p previous-window"
-            - "bind-key": "C-n next-window"
-        - comment: "source .tmux.conf as suggested in `man tmux`"
-          commands:
-            - "bind-key": "R source-file '~/.tmux.conf'"
-        - comment: "if prefix is 'C-a'"
-          commands:
-            - "bind-key": "C-a send-prefix"
-            - "bind-key": "a last-window"
+        global:
+          - comment: "utf8 is on"
+            commands:
+              - "set-option": "-g utf8 on"
+              - "set-option": "-g status-utf8 on"
+          - comment: "address vim mode switching delay (http://superuser.com/a/252717/65504)"
+            commands:
+              - "set-option": "-s escape-time 0"
+          - comment: "increase scrollback buffer size"
+            commands:
+              - "set-option": "-g history-limit 50000"
+          - comment: "tmux messages are displayed for 4 seconds"
+            commands:
+              - "set-option": "-g display-time 4000
+          - comment: "refresh 'status-left' and 'status-right' more often"
+            commands:
+              - "set-option": "-g status-interval 5"
+          - comment: "upgrade $TERM"
+            commands:
+              - "set-option": "-g default-terminal "screen-256color"
+          - comment: "emacs key bindings in tmux command prompt (prefix + :) are bettter than vi keys, even for vim users"
+            commands:
+              - "set-option": "status-keys emacs"
+          - comment: "focus events enabled for terminals that support them"
+            commands:
+              - "set-option": "-g focus-events on"
+          - comment: "super useful when using "grouped sessions" and multi-monitor setup"
+            commands:
+              - "set-window-option": "-g aggressive-resize on"
+          - comment: "easier and faster switching between next/prev window"
+            commands:
+              - "bind-key": "C-p previous-window"
+              - "bind-key": "C-n next-window"
+          - comment: "source .tmux.conf as suggested in `man tmux`"
+            commands:
+              - "bind-key": "R source-file '~/.tmux.conf'"
+          - comment: "if prefix is 'C-a'"
+            commands:
+              - "bind-key": "C-a send-prefix"
+              - "bind-key": "a last-window"
 ```
               
 ...or with a plugin installation:
@@ -164,9 +165,10 @@ Apply Tmux "sensible (configurations)" plugin settings manually:
   - role: 0xOI.tmux
     vars:
       tmux_config:
-        - comment: "Add sensible to list of TPM plugins"
-          commands:
-            - "set-option": "-g @plugin 'tmux-plugins/tmux-sensible'"
+        global:
+          - comment: "Add sensible to list of TPM plugins"
+            commands:
+              - "set-option": "-g @plugin 'tmux-plugins/tmux-sensible'"
 ```
 
 License
