@@ -49,7 +49,7 @@ _The following variables can be customized to control various aspects of this in
 
 #### Config
 
-Using this role, configuration of an instance of `tmux` is managed with the `tmux_config` user variable and can be expressed within a hash, keyed by user account where appropriate. The value of these user account keys are either dicts, list of dicts or a combination thereof (set according to operator yaml syntax and customization preferences) representing associated startup/configuration commands/command-sequences (combinations of commands linked by execution) and an `optional` command-sequence comment.
+Using this role, configuration of an instance of `tmux` is managed with the `tmux_config` user variable and can be expressed within a hash, keyed by user account. The value of these user account keys are either dicts, list of dicts or a combination thereof (set according to operator yaml syntax and customization preferences) representing associated startup/configuration commands and command-sequences (combinations of commands linked by execution) as well as an `optional` comment.
 
 The following provides an overview and example configurations for reference:
 
@@ -61,12 +61,13 @@ The following provides an overview and example configurations for reference:
  ```yaml
   tmux_config:
     global:
-      - comment: "This comment provides context around the commands below (if any)"
-        commands: []
+      - comment: "This comment provides context around the command(s) below"
+        commands:
+          - "source-file": "'~/.tmux.conf'"
   ```
 
 `[tmux_config:  {global | user-account} : {entry} :] commands: <key: value,...>` (**default**: see `defaults/main.yml`)
-- a collection of configuration commands to render within *user-account's* tmux.conf. A list of available command-line options can be found [here](http://man7.org/linux/man-pages/man1/tmux.1.html)
+- a collection of configuration commands to render within *user-account's* tmux.conf. A list of available commands can be found [here](http://man7.org/linux/man-pages/man1/tmux.1.html)
 
 **Typically each key:value pair represents the `{command}: {flags}` components of a tmux command respectively:**
 
@@ -106,14 +107,23 @@ default example:
 ```
 - hosts: all
   roles:
-  - role: 0xOI.tmux
+  - role: 0x0I.tmux
+```
+
+Install and manage a specific version:
+```
+- hosts: all
+  roles:
+  - role: 0x0I.tmux
+    vars:
+      service_package: "tmux-2.7-2"
 ```
 
 Apply Tmux "sensible (configurations)" plugin settings manually:
 ```
 - hosts: all
   roles:
-  - role: 0xOI.tmux
+  - role: 0x0I.tmux
     vars:
       tmux_config:
         global:
@@ -162,7 +172,7 @@ Apply Tmux "sensible (configurations)" plugin settings manually:
 ```
 - hosts: all
   roles:
-  - role: 0xOI.tmux
+  - role: 0x0I.tmux
     vars:
       tmux_config:
         global:
