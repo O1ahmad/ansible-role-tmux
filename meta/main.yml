@@ -14,18 +14,13 @@ galaxy_info:
         - 7
     - name: Debian
       versions:
-        - jessie
-        - stretch
+        - all
     - name: Fedora
       versions:
-        - 27
-        - 28
-        - 29
+        - all
     - name: Ubuntu
       versions:
-        - xenial
-        - bionic
-        - cosmic
+        - all
 
   galaxy_tags:
     - tmux
