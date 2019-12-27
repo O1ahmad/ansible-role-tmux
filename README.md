@@ -1,3 +1,5 @@
+<p><img src="https://d2eip9sf3oo6c2.cloudfront.net/tags/images/000/001/048/landscape/tmux.png" alt="tmux logo" title="tmux" align="right" height="60" /></p>
+
 Ansible Role :eyeglasses: tmux
 =========
 [![Galaxy Role](https://img.shields.io/ansible/role/44305.svg)](https://galaxy.ansible.com/0x0I/tmux)
