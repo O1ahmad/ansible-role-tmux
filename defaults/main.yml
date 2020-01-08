@@ -1,6 +1,5 @@
 ---
 # defaults variable for tmux
-tmux_user: tmux
 
 global_config_dir: "/etc"
 service_package: tmux

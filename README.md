@@ -46,9 +46,6 @@ _The following variables can be customized to control various aspects of this in
 `service_package: <package-name-and-version>` (**default**: *tmux*[-latest])
 - name and version of the tmux package to download and install. [Reference](http://fr2.rpmfind.net/linux/rpm2html/search.php?query=tmux&submit=Search+...&system=&arch=) or run something like `dnf --showduplicates list tmux` in a terminal to display a list of available packages for your platform
 
-`tmux_user: <service-user-name>` (**default**: *tmux*)
-- dedicated service user, group and directory used by `tmux` for privilege separation
-
 #### Config
 
 Using this role, configuration of an instance of `tmux` is managed with the `tmux_config` user variable and can be expressed within a hash, keyed by user account. The value of these user account keys are either dicts, list of dicts or a combination thereof (set according to operator yaml syntax and customization preferences) representing associated startup/configuration commands and command-sequences (combinations of commands linked by execution) as well as an `optional` comment.
@@ -82,7 +79,7 @@ The following provides an overview and example configurations for reference:
           - "set-option": "-g prefix2 C-a"
           - "bind-key": "C-a send-prefix -2"
   ```
-  
+
 However, technically any splitting of the tmux command syntax is allowed and should result in the correct rendering of the desired configuration:
 
  ```yaml
@@ -97,7 +94,7 @@ However, technically any splitting of the tmux command syntax is allowed and sho
             "set -g": "@plugin 'tmux-plugins/tmux-sensible'"
         comment: "Install tmux TPM & 'tmux-sensible' (sensible configurations) plugins"
   ```
-  
+
 Dependencies
 ------------
 
@@ -169,7 +166,7 @@ Apply Tmux "sensible (configurations)" plugin settings manually:
               - "bind-key": "C-a send-prefix"
               - "bind-key": "a last-window"
 ```
-              
+
 ...or with a plugin installation:
 ```
 - hosts: all
