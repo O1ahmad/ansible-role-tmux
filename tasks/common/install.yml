@@ -1,18 +1,4 @@
 ---
-- name: Ensure tmux group exists
-  group:
-    name: "{{ tmux_user }}"
-    state: present
-  become: true
-
-- name: Ensure tmux user exists
-  user:
-    comment: tmux service account
-    name: "{{ tmux_user }}"
-    group: "{{ tmux_user }}"
-    create_home: false
-  become: true
-
 - name: Install tmux software package
   package:
     name: "{{ service_package }}"
