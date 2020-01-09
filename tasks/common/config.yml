@@ -1,5 +1,6 @@
 ---
-- name: Copy custom systemd-wide configuration in place
+- name: Render systemd-wide configuration
+  become: true
   template:
     src: "{{ tmux_config_file }}.j2"
     dest: "{{ global_config_dir }}/{{ tmux_config_file }}"
@@ -9,10 +10,10 @@
     backup: true
   vars:
     account: global
-  become: true
   when: tmux_config is not none and "global" in tmux_config
 
-- name: Copy user configuration in place
+- name: Render user configuration
+  become: true
   template:
     src: "{{ tmux_config_file }}.j2"
     dest: "/home/{{ item }}/.{{ tmux_config_file }}"
@@ -23,5 +24,4 @@
   vars:
     account: "{{ item }}"
   with_items: "{{ tmux_config.keys() | difference(['global']) }}"
-  become: true
-  when: tmux_config is not none and (tmux_config.keys() | difference(['global'])) is not none
+  when: tmux_config is not none and tmux_config.keys() | difference(['global']) | length > 0
