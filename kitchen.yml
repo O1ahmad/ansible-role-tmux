@@ -93,15 +93,15 @@ platforms:
         - systemctl enable ssh.service
 
 suites:
+  - name: install
+    provisioner:
+      playbook: test/integration/install/default_playbook.yml
+    verifier:
+      inspec_tests:
+        - path: test/integration/install
   - name: config
     provisioner:
       playbook: test/integration/config/default_playbook.yml
     verifier:
       inspec_tests:
         - path: test/integration/config
-  - name: service
-    provisioner:
-      playbook: test/integration/service/default_playbook.yml
-    verifier:
-      inspec_tests:
-        - path: test/integration/service

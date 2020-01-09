@@ -1,6 +1,6 @@
 ---
 - name: Install tmux software package
+  become: true
   package:
     name: "{{ service_package }}"
     state: present
-  become: true
