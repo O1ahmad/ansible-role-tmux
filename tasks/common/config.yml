@@ -2,8 +2,8 @@
 - name: Render systemd-wide configuration
   become: true
   template:
-    src: "{{ tmux_config_file }}.j2"
-    dest: "{{ global_config_dir }}/{{ tmux_config_file }}"
+    src: "{{ _tmux_config_file }}.j2"
+    dest: "{{ _global_config_dir }}/{{ _tmux_config_file }}"
     owner: root
     group: root
     mode: 0644
@@ -15,8 +15,8 @@
 - name: Render user configuration
   become: true
   template:
-    src: "{{ tmux_config_file }}.j2"
-    dest: "/home/{{ item }}/.{{ tmux_config_file }}"
+    src: "{{ _tmux_config_file }}.j2"
+    dest: "/home/{{ item }}/.{{ _tmux_config_file }}"
     owner: "{{ item }}"
     group: "{{ item }}"
     mode: 0644
