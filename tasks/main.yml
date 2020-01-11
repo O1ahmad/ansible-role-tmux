@@ -1,6 +1,10 @@
 ---
-- name: Include common provisioning tasks
-  include_tasks: "common/{{ item }}.yml"
-  with_items:
-    - "install"
-    - "config"
+- name: Include common install tasks
+  include_tasks: "common/install.yml"
+  tags:
+    - install
+
+- name: Include common config tasks
+  include_tasks: "common/config.yml"
+  tags:
+    - config
