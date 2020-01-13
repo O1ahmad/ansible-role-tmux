@@ -4,3 +4,5 @@ service_package: tmux
 
 _tmux_config_file: tmux.conf
 tmux_config: {}
+
+perform_uninstall: false

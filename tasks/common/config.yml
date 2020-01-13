@@ -10,7 +10,7 @@
     backup: true
   vars:
     account: global
-  when: tmux_config is not none and "global" in tmux_config
+  when: tmux_config is defined and "global" in tmux_config
   tags:
     - config
     - global
@@ -27,7 +27,7 @@
   vars:
     account: "{{ item }}"
   with_items: "{{ tmux_config.keys() | difference(['global']) }}"
-  when: tmux_config is not none and tmux_config.keys() | difference(['global']) | length > 0
+  when: tmux_config is defined and tmux_config.keys() | difference(['global']) | length > 0
   tags:
     - config
     - user
