@@ -12,6 +12,7 @@ Ansible Role :eyeglasses: tmux
   - [Role Variables](#role-variables)
       - [Install](#install)
       - [Config](#config)
+      - [Uninstall](#uninstall)
   - [Dependencies](#dependencies)
   - [Example Playbook](#example-playbook)
   - [License](#license)
@@ -36,6 +37,7 @@ Role Variables
 Variables are available and organized according to the following software & machine provisioning stages:
 * _install_
 * _config_
+* _uninstall_
 
 #### Install
 
@@ -94,6 +96,15 @@ However, technically any splitting of the tmux command syntax is allowed and sho
             "set -g": "@plugin 'tmux-plugins/tmux-sensible'"
         comment: "Install tmux TPM & 'tmux-sensible' (sensible configurations) plugins"
   ```
+
+#### Uninstall
+
+Remove both package installations as well as managed tmux user configs, returning the target host to its configured state prior to application of this role with the exception of global/system-wide configuration (e.g. can be useful for recycling configuration settings during system upgrades).
+
+_The following variable(s) can be customized to manage this uninstall process:_
+
+`perform_uninstall: <true | false>` (**default**: `false`)
+- whether to uninstall managed tmux installations and user configurations on a target host (**see**: `handlers/main.yml` for details)
 
 Dependencies
 ------------
