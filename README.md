@@ -5,6 +5,7 @@ Ansible Role :eyeglasses: tmux
 [![Galaxy Role](https://img.shields.io/ansible/role/44305.svg)](https://galaxy.ansible.com/0x0I/tmux)
 [![Downloads](https://img.shields.io/ansible/role/d/44305.svg)](https://galaxy.ansible.com/0x0I/tmux)
 [![Build Status](https://travis-ci.org/0x0I/ansible-role-tmux.svg?branch=master)](https://travis-ci.org/0x0I/ansible-role-tmux)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 **Table of Contents**
   - [Supported Platforms](#supported-platforms)
@@ -194,7 +195,7 @@ Apply Tmux "sensible (configurations)" plugin settings manually:
 License
 -------
 
-Apache, BSD, MIT
+MIT
 
 Author Information
 ------------------
