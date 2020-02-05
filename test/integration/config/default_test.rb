@@ -1,4 +1,4 @@
-title "Tmux configuration integrated test file"
+title "tmux configuration integration tests"
 
 describe file('/etc/tmux.conf') do
   it { should exist }
