@@ -1,4 +1,4 @@
-title "tmux package installation default test suite"
+title "tmux installation integration tests"
 
 describe user('tmux') do
   it { should exist }
