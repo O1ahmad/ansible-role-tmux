@@ -1,12 +1,11 @@
 ---
-# role metadata file
 galaxy_info:
   author: Ahmad Wilson
   role_name: tmux
   description: "tmux, a terminal multiplexer enabling multiple terminals to be \
                created, accessed, and controlled from a single screen"
   company: "O1.IO"
-  license: license (Apache, BSD, MIT)
+  license: license (MIT)
   min_ansible_version: 2.6
   platforms:
     - name: EL
