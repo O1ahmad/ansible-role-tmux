@@ -1,13 +1,5 @@
 title "tmux installation integration tests"
 
-describe user('tmux') do
-  it { should exist }
-end
-
-describe group('tmux') do
-  it { should exist }
-end
-
 describe package('tmux') do
   it { should be_installed }
 end
