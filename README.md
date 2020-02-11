@@ -3,9 +3,10 @@
 Ansible Role :eyeglasses: tmux
 =========
 [![Galaxy Role](https://img.shields.io/ansible/role/44305.svg)](https://galaxy.ansible.com/0x0I/tmux)
-[![Downloads](https://img.shields.io/ansible/role/d/44305.svg)](https://galaxy.ansible.com/0x0I/tmux)
+![GitHub release (latest by date)](https://img.shields.io/github/v/release/0x0I/ansible-role-tmux?color=yellow)
+[![Downloads](https://img.shields.io/ansible/role/d/44305.svg?color=lightgrey)](https://galaxy.ansible.com/0x0I/tmux)
 [![Build Status](https://travis-ci.org/0x0I/ansible-role-tmux.svg?branch=master)](https://travis-ci.org/0x0I/ansible-role-tmux)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![License: MIT](https://img.shields.io/badge/License-MIT-blueviolet.svg)](https://opensource.org/licenses/MIT)
 
 **Table of Contents**
   - [Supported Platforms](#supported-platforms)
@@ -69,7 +70,7 @@ The following provides an overview and example configurations for reference:
   ```
 
 `[tmux_config:  {global | user-account} : {entry} :] commands: <key: value,...>` (**default**: see `defaults/main.yml`)
-- a collection of configuration commands to render within *user-account's* tmux.conf. A list of available commands can be found [here](http://man7.org/linux/man-pages/man1/tmux.1.html)
+- a collection of configuration commands to render within *user-account's* tmux.conf. A list of available commands can be found [here](http://man7.org/linux/man-pages/man1/tmux.1.html).
 
 **Typically each key:value pair represents the `{command}: {flags}` components of a tmux command respectively:**
 
@@ -83,7 +84,7 @@ The following provides an overview and example configurations for reference:
           - "bind-key": "C-a send-prefix -2"
   ```
 
-However, technically any splitting of the tmux command syntax is allowed and should result in the correct rendering of the desired configuration:
+However, technically any splitting of the tmux command syntax is allowed and should result in the correct rendering of the desired configuration.
 
  ```yaml
   tmux_config:
@@ -100,7 +101,7 @@ However, technically any splitting of the tmux command syntax is allowed and sho
 
 #### Uninstall
 
-Remove both package installations as well as managed tmux user configs, returning the target host to its configured state prior to application of this role with the exception of global/system-wide configuration (e.g. can be useful for recycling configuration settings during system upgrades).
+Remove both package installations as well as managed tmux user configs, returning the target host to its configured state prior to application of this role with the exception of global/system-wide configurations (e.g. can be useful for recycling configuration settings during system upgrades).
 
 _The following variable(s) can be customized to manage this uninstall process:_
 
@@ -127,7 +128,7 @@ Install and manage a specific version:
   roles:
   - role: 0x0I.tmux
     vars:
-      service_package: "tmux-2.7-2"
+      service_package: tmux-2.7-2
 ```
 
 Apply Tmux "sensible (configurations)" plugin settings manually:
