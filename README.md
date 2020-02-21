@@ -1,3 +1,4 @@
+<p><img src="https://code.benco.io/icon-collection/logos/ansible.svg" alt="ansible logo" title="ansible" align="left" height="60" /></p>
 <p><img src="https://d2eip9sf3oo6c2.cloudfront.net/tags/images/000/001/048/landscape/tmux.png" alt="tmux logo" title="tmux" align="right" height="60" /></p>
 
 Ansible Role :eyeglasses: tmux
