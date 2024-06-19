@@ -3,10 +3,8 @@
 
 Ansible Role :eyeglasses: tmux
 =========
-[![Galaxy Role](https://img.shields.io/ansible/role/44305.svg)](https://galaxy.ansible.com/0x0I/tmux)
+[![Galaxy Role](https://img.shields.io/ansible/role/d/0x0i/tmux)](https://galaxy.ansible.com/0x0I/tmux)
 ![GitHub release (latest by date)](https://img.shields.io/github/v/release/0x0I/ansible-role-tmux?color=yellow)
-[![Downloads](https://img.shields.io/ansible/role/d/44305.svg?color=lightgrey)](https://galaxy.ansible.com/0x0I/tmux)
-[![Build Status](https://travis-ci.org/0x0I/ansible-role-tmux.svg?branch=master)](https://travis-ci.org/0x0I/ansible-role-tmux)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blueviolet.svg)](https://opensource.org/licenses/MIT)
 
 **Table of Contents**
